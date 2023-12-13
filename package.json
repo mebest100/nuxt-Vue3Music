@@ -1,0 +1,51 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "runApiServer": "node backend/apiServer.js"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/types": "^2.17.2",
+    "@nuxt/webpack-builder": "^3.8.2",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "nuxt": "^3.8.2",
+    "nuxt-proxy-request": "^1.7.0",
+    "typescript": "5.0.4",
+    "vue": "^3.3.10",
+    "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@better-scroll/core": "^2.4.2",
+    "@better-scroll/observe-dom": "^2.4.2",
+    "@better-scroll/pull-up": "^2.4.2",
+    "@better-scroll/slide": "^2.4.2",
+    "@vueuse/core": "^8.2.0",
+    "axios": "^1.6.2",
+    "axios-retry": "^3.2.4",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "core-js": "^3.21.1",
+    "cors": "^2.8.5",
+    "create-keyframe-animation": "^0.1.0",
+    "crypto": "^1.0.1",
+    "express": "^4.18.2",
+    "fast-decode-uri-component": "1.0.1",
+    "good-storage": "^1.1.1",
+    "js-base64": "^3.7.2",
+    "lyric-parser": "^1.0.1",
+    "nuxt-proxy": "^0.4.1",
+    "pac-proxy-agent": "^7.0.1",
+    "pinyin": "^2.11.1",
+    "register-service-worker": "^1.7.2",
+    "tunnel": "^0.0.6",
+    "vue3-lazy": "^1.0.0-alpha.1",
+    "vuex": "^4.0.2"
+  }
+}

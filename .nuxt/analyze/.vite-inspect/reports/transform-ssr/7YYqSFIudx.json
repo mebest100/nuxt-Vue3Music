@@ -1,0 +1,282 @@
+{
+  "resolvedId": "F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/parent/childTwo.vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n    <h1>这是子组件页面2</h1>\r\n</template>\r\n\r\n<script setup>\r\nimport {} from \"vue\";\r\n</script>\r\n\r\n<style scoped></style>\r\n",
+      "start": 1702032568327,
+      "end": 1702032568712,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1702032568712,
+      "end": 1702032568712,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1702032568712,
+      "end": 1702032568712,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1702032568712,
+      "end": 1702032568712,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1702032568712,
+      "end": 1702032568712,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1702032568712,
+      "end": 1702032568712,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1702032568715,
+      "end": 1702032568715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1702032568715,
+      "end": 1702032568715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1702032568715,
+      "end": 1702032568715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1702032568715,
+      "end": 1702032568715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport {} from \"vue\";\r\n\nconst _sfc_main = {\n  __name: 'childTwo',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  _push(`<h1${_ssrRenderAttrs(_attrs)}>这是子组件页面2</h1>`)\n}\n}\n\n}\n\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"pages/parent/childTwo.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nexport default _sfc_main",
+      "start": 1702032568715,
+      "end": 1702032568719,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/parent/childTwo.vue"
+        ],
+        "sourcesContent": [
+          "<template>\r\n    <h1>这是子组件页面2</h1>\r\n</template>\r\n\r\n<script setup>\r\nimport {} from \"vue\";\r\n</script>\r\n\r\n<style scoped></style>\r\n"
+        ],
+        "names": [],
+        "mappings": ";;AAKA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;AADR,CAAC;;;;;;;"
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1702032568719,
+      "end": 1702032568719,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1702032568719,
+      "end": 1702032568719,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1702032568719,
+      "end": 1702032568719,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1702032568719,
+      "end": 1702032568719,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1702032568719,
+      "end": 1702032568719,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1702032568730,
+      "end": 1702032568730,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1702032568730,
+      "end": 1702032568730,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1702032568730,
+      "end": 1702032568730,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1702032568730,
+      "end": 1702032568730,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1702032568730,
+      "end": 1702032568730,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1702032568730,
+      "end": 1702032568730,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1702032568730,
+      "end": 1702032568730,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1702032568730,
+      "end": 1702032568730,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1702032568730,
+      "end": 1702032568730,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1702032568731,
+      "end": 1702032568731,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1702032568731,
+      "end": 1702032568731,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1702032568731,
+      "end": 1702032568731,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1702032568731,
+      "end": 1702032568731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1702032568731,
+      "end": 1702032568731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1702032568731,
+      "end": 1702032568732,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1702032568731,
+      "end": 1702032568732,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1702032568732,
+      "end": 1702032568732,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1702032568732,
+      "end": 1702032568732,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1702032568732,
+      "end": 1702032568733,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1702032568732,
+      "end": 1702032568733,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1702032568733,
+      "end": 1702032568733,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1702032568733,
+      "end": 1702032568733,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1702032568733,
+      "end": 1702032568733,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1702032568733,
+      "end": 1702032568733,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1702032568733,
+      "end": 1702032568733,
+      "order": "normal"
+    }
+  ]
+}
