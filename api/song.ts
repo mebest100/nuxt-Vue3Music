@@ -3,6 +3,7 @@ import axios from 'axios'
 import type { SingerDetailReq } from '@/types/api/singer'
 import type { LyricResp, SongUrlReq, SongUrlResp } from '@/types/api/song'
 import type { Song } from '@/types/api/recommend'
+import picPath from "@/assets/images/disc.png";
 
 interface LyricMap {
   [key: string]: string;
@@ -97,7 +98,7 @@ export function createSong (song: any) {
     name: song.name,
     album: song.album.name,
     duration: Math.floor(song.duration / 1000),
-    pic: require('@/assets/images/disc.png'),
+    pic: picPath,
     url: ''
   }
   return newSong

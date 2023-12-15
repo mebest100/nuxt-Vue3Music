@@ -73,7 +73,7 @@
           <div class="progress-wrapper">
             <span class="time time-l">{{ formatTime(currentTime) }}</span>
             <div class="progress-bar-wrapper">
-              <player-progressBar
+              <player-progressBNar
                 ref="barRef"
                 :progress="progress"
                 @progress-changing="onProgressChanging"
