@@ -15,11 +15,11 @@
       </transition>
     </router-view> 
 
-   <!-- <client-only>
+   <client-only>
      <player />
-   </client-only> -->
+   </client-only>
 
-  <router-view></router-view>
+  <!-- <router-view></router-view> -->
 </template>  
 
 <script lang="ts">

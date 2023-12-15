@@ -30,7 +30,7 @@
         :style="filterStyle"
       />
     </div>
-    <scroll
+    <wrap-scroll
       class="list"
       :style="scrollStyle"
       :probe-type="3"
@@ -39,13 +39,13 @@
       @scroll="onScroll"
     >
       <div class="song-list-wrapper">
-        <song-list
+        <base-song-list
           :songs="songs"
           :rank="rank"
           @select="selectItem"
         />
       </div>
-    </scroll>
+    </wrap-scroll>
   </div>
 </template>
 
@@ -53,8 +53,8 @@
 import { computed,  type ComputedRef, defineComponent, onMounted, type PropType, reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import Scroll from '../wrap-scroll/index'
-import SongList from '../base/song-list/index.vue'
+// import Scroll from '../wrap-scroll/index'
+// import SongList from '../base/song-list/index.vue'
 import type { Position } from '@better-scroll/slide/dist/types/SlidePages'
 import type { Song } from '@/types/api/recommend'
 
@@ -75,10 +75,10 @@ interface State {
 
 export default defineComponent({
   name: 'MusicList',
-  components: {
-    Scroll,
-    SongList
-  },
+  // components: {
+  //   Scroll,
+  //   SongList
+  // },
   props: {
     /** 歌曲列表 */
     songs: {
