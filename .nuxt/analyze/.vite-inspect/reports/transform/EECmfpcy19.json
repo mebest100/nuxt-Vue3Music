@@ -3,58 +3,58 @@
   "transforms": [
     {
       "name": "vite:load-fallback",
-      "result": "<template>\n  <div>\n    <!-- <NuxtWelcome /> -->\n    <NuxtLink to=\"/parent\">嵌套路由页面</NuxtLink>\n    <NuxtPage></NuxtPage>\n  </div>\n</template>\n",
-      "start": 1702032563014,
-      "end": 1702032563520,
+      "result": "<template>\n  <div  class=\"recommend\" v-loading=\"loading\">   \n    <wrap-scroll   class=\"recommend-content\">\n        <div>\n          <div class=\"slider-wrapper\">\n            <div class=\"slider-content\">\n              <baseSlider v-if=\"sliders.length\" :sliders=\"sliders\" />\n            </div>\n          </div>\n          <div class=\"recommend-list\">\n            <h1 class=\"list-title\" v-show=\"!loading\">热门歌单推荐</h1>\n            <ul>\n              <li\n                class=\"item\"\n                v-for=\"item in albums\"\n                :key=\"item.id\"\n                @click=\"selectAlbum(item)\"\n              >\n                <div class=\"icon\">\n                  <img width=\"60\" height=\"60\" v-lazy=\"item.pic\" alt=\"\" />\n                </div>\n                <div class=\"text\">\n                  <h2 class=\"name\">{{ item.username }}</h2>\n                  <p class=\"title\">{{ item.title }}</p>\n                </div>\n              </li>\n            </ul>\n          </div>\n        </div>\n      </wrap-scroll>    \n  \n     \n \n    <router-view v-slot=\"{ Component }\">\n      <transition appear name=\"slide\">\n        <component :is=\"Component\" :data=\"selectedAlbum\" />\n      </transition>\n    </router-view>\n    <p>默认首页</p>\n  </div>\n  \n</template>\n\n<script lang=\"ts\">\nimport { computed, defineComponent, onMounted, reactive, toRefs } from \"vue\";\n// import { Scroll, Slider } from \"@/components\";\nimport type { Album, RecommendResp } from \"@/types/api/recommend\";\nimport { ALBUM_KEY } from \"@/utils/constants\";\nimport { saveSessionStorage } from \"@/utils/cache\";\nimport RecommendServer from \"@/api/recommend\";\nimport { useRouter } from \"vue-router\";\n\ninterface State extends RecommendResp {\n  /** 选中的专辑 */\n  selectedAlbum: Album | undefined;\n  isClient: boolean | false;\n}\n\nexport default defineComponent({\n  name: \"Recommend\",\n  components: {\n    // Slider,\n    // Scroll,\n  },\n  setup() {\n    const router = useRouter();\n    const state = reactive<State>({\n      sliders: [],\n      albums: [],\n      selectedAlbum: undefined,\n      isClient: false\n    });\n\n    const loading = computed(\n      () => !state.sliders.length && !state.albums.length\n    );\n    \n\n    /** 获取数据 */\n    async function fetchData() {\n      const { sliders, albums } = await RecommendServer.getRecommend();\n      state.sliders = sliders;\n      state.albums = albums;\n    }\n\n    /** 选择专辑 */\n    function selectAlbum(album: Album): void {\n      state.selectedAlbum = album;\n      cacheAlbum(album);\n      router.push({\n        path: `/recommend/${album.id}`,\n      });\n    }\n\n    /** 缓存专辑 */\n    function cacheAlbum(album: Album): void {\n      saveSessionStorage(ALBUM_KEY, album);\n    }\n\n    onMounted(() => {\n      console.log(\"推荐页已挂载......\")\n      state.isClient = process.client\n      fetchData();\n    });\n\n    return {\n      ...toRefs(state),\n      loading,\n\n      selectAlbum,\n    };\n  },\n});\n</script>\n\n<style scoped lang=\"less\">\n.recommend {\n  position: fixed;\n  top: 88px;\n  bottom: 0;\n  width: 100%;\n  overflow: scroll;\n\n  .recommend-content {\n    height: 100%;\n    overflow: hidden;\n\n    .slider-wrapper {\n      position: relative;\n      width: 100%;\n      height: 0;\n      padding-top: 40%;\n      overflow: hidden;\n\n      .slider-content {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n      }\n    }\n\n    .recommend-list {\n      .list-title {\n        height: 65px;\n        color: @color-theme;\n        font-size: @font-size-medium;\n        line-height: 65px;\n        text-align: center;\n      }\n\n      .item {\n        display: flex;\n        align-items: center;\n        box-sizing: border-box;\n        padding: 0 20px 20px;\n\n        .icon {\n          flex: 0 0 60px;\n          width: 60px;\n          padding-right: 20px;\n        }\n\n        .text {\n          display: flex;\n          flex: 1;\n          flex-direction: column;\n          justify-content: center;\n          overflow: hidden;\n          font-size: @font-size-medium;\n          line-height: 20px;\n        }\n\n        .name {\n          margin-bottom: 10px;\n          color: @color-text;\n        }\n\n        .title {\n          color: @color-text-d;\n        }\n      }\n    }\n  }\n}\n</style>\n\n",
+      "start": 1702644650957,
+      "end": 1702644651712,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1702032563520,
-      "end": 1702032563520,
+      "start": 1702644651712,
+      "end": 1702644651712,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1702032563521,
-      "end": 1702032563521,
+      "start": 1702644651712,
+      "end": 1702644651713,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1702032563521,
-      "end": 1702032563521,
+      "start": 1702644651713,
+      "end": 1702644651713,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1702032563521,
-      "end": 1702032563521,
+      "start": 1702644651713,
+      "end": 1702644651713,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1702032563521,
-      "end": 1702032563521,
+      "start": 1702644651713,
+      "end": 1702644651713,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1702032563521,
-      "end": 1702032563521,
+      "start": 1702644651713,
+      "end": 1702644651713,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1702032563521,
-      "end": 1702032563521,
+      "start": 1702644651713,
+      "end": 1702644651713,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "result": "const _sfc_main = {}\nimport { createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_NuxtLink, { to: \"/parent\" }, {\n      default: _withCtx(() => [\n        _createTextVNode(\"嵌套路由页面\")\n      ]),\n      _: 1\n    }),\n    _createVNode(_component_NuxtPage)\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
-      "start": 1702032563521,
-      "end": 1702032563526,
+      "result": "import _sfc_main from \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/index.vue?vue&type=script&lang.ts\";\nexport * from \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/index.vue?vue&type=script&lang.ts\";\nimport { resolveComponent as _resolveComponent, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, vShow as _vShow, withDirectives as _withDirectives, renderList as _renderList, Fragment as _Fragment, createElementBlock as _createElementBlock, resolveDirective as _resolveDirective, toDisplayString as _toDisplayString, withCtx as _withCtx, createVNode as _createVNode, resolveDynamicComponent as _resolveDynamicComponent, Transition as _Transition, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-8ed1673a\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"recommend\" };\nconst _hoisted_2 = { class: \"slider-wrapper\" };\nconst _hoisted_3 = { class: \"slider-content\" };\nconst _hoisted_4 = { class: \"recommend-list\" };\nconst _hoisted_5 = { class: \"list-title\" };\nconst _hoisted_6 = [\"onClick\"];\nconst _hoisted_7 = { class: \"icon\" };\nconst _hoisted_8 = {\n  width: \"60\",\n  height: \"60\",\n  alt: \"\"\n};\nconst _hoisted_9 = { class: \"text\" };\nconst _hoisted_10 = { class: \"name\" };\nconst _hoisted_11 = { class: \"title\" };\nconst _hoisted_12 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"p\", null, \"\\u9ED8\\u8BA4\\u9996\\u9875\", -1));\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_baseSlider = _resolveComponent(\"baseSlider\");\n  const _component_wrap_scroll = _resolveComponent(\"wrap-scroll\");\n  const _component_router_view = _resolveComponent(\"router-view\");\n  const _directive_lazy = _resolveDirective(\"lazy\");\n  const _directive_loading = _resolveDirective(\"loading\");\n  return _withDirectives((_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_wrap_scroll, { class: \"recommend-content\" }, {\n      default: _withCtx(() => [\n        _createElementVNode(\"div\", null, [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createElementVNode(\"div\", _hoisted_3, [\n              _ctx.sliders.length ? (_openBlock(), _createBlock(_component_baseSlider, {\n                key: 0,\n                sliders: _ctx.sliders\n              }, null, 8, [\"sliders\"])) : _createCommentVNode(\"\", true)\n            ])\n          ]),\n          _createElementVNode(\"div\", _hoisted_4, [\n            _withDirectives(_createElementVNode(\"h1\", _hoisted_5, \"\\u70ED\\u95E8\\u6B4C\\u5355\\u63A8\\u8350\", 512), [\n              [_vShow, !_ctx.loading]\n            ]),\n            _createElementVNode(\"ul\", null, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.albums, (item) => {\n                return _openBlock(), _createElementBlock(\"li\", {\n                  class: \"item\",\n                  key: item.id,\n                  onClick: ($event) => _ctx.selectAlbum(item)\n                }, [\n                  _createElementVNode(\"div\", _hoisted_7, [\n                    _withDirectives(_createElementVNode(\"img\", _hoisted_8, null, 512), [\n                      [_directive_lazy, item.pic]\n                    ])\n                  ]),\n                  _createElementVNode(\"div\", _hoisted_9, [\n                    _createElementVNode(\"h2\", _hoisted_10, _toDisplayString(item.username), 1),\n                    _createElementVNode(\"p\", _hoisted_11, _toDisplayString(item.title), 1)\n                  ])\n                ], 8, _hoisted_6);\n              }), 128))\n            ])\n          ])\n        ])\n      ]),\n      _: 1\n    }),\n    _createVNode(_component_router_view, null, {\n      default: _withCtx(({ Component }) => [\n        _createVNode(_Transition, {\n          appear: \"\",\n          name: \"slide\"\n        }, {\n          default: _withCtx(() => [\n            (_openBlock(), _createBlock(_resolveDynamicComponent(Component), { data: _ctx.selectedAlbum }, null, 8, [\"data\"]))\n          ]),\n          _: 2\n        }, 1024)\n      ]),\n      _: 1\n    }),\n    _hoisted_12\n  ])), [\n    [_directive_loading, _ctx.loading]\n  ]);\n}\nimport \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/index.vue?vue&type=style&index=0&scoped=8ed1673a&lang.less\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"render\", _sfc_render], [\"__scopeId\", \"data-v-8ed1673a\"]]);\n",
+      "start": 1702644651713,
+      "end": 1702644652693,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,117 +62,117 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1702032563526,
-      "end": 1702032563526,
+      "start": 1702644652693,
+      "end": 1702644652693,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1702032563526,
-      "end": 1702032563526,
+      "start": 1702644652693,
+      "end": 1702644652693,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1702032563526,
-      "end": 1702032563527,
+      "start": 1702644652694,
+      "end": 1702644652694,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652694,
+      "end": 1702644652694,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652694,
+      "end": 1702644652694,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652695,
+      "end": 1702644652695,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652695,
+      "end": 1702644652695,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652695,
+      "end": 1702644652695,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652696,
+      "end": 1702644652696,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652696,
+      "end": 1702644652696,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652696,
+      "end": 1702644652696,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652696,
+      "end": 1702644652696,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652697,
+      "end": 1702644652697,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652697,
+      "end": 1702644652697,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652697,
+      "end": 1702644652697,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1702032563527,
-      "end": 1702032563527,
+      "start": 1702644652697,
+      "end": 1702644652697,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1702032563527,
-      "end": 1702032563529,
+      "start": 1702644652697,
+      "end": 1702644652701,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1702032563529,
-      "end": 1702032563529,
+      "start": 1702644652701,
+      "end": 1702644652702,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1702032563529,
-      "end": 1702032563531,
+      "result": "export { default } from \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/index.vue?macro=true&vue&type=script&lang.ts\"",
+      "start": 1702644652703,
+      "end": 1702644652705,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -180,43 +180,43 @@
           ""
         ],
         "names": [],
-        "mappings": "AAAA;AAAA;AAAA;AAAA"
+        "mappings": "AAAA"
       }
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1702032563531,
-      "end": 1702032563531,
+      "start": 1702644652706,
+      "end": 1702644652706,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1702032563531,
-      "end": 1702032563531,
+      "start": 1702644652706,
+      "end": 1702644652706,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1702032563531,
-      "end": 1702032563531,
+      "start": 1702644652707,
+      "end": 1702644652707,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1702032563531,
-      "end": 1702032563531,
+      "start": 1702644652707,
+      "end": 1702644652707,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1702032563531,
-      "end": 1702032563531,
+      "start": 1702644652708,
+      "end": 1702644652708,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1702032563532,
-      "end": 1702032563532,
+      "start": 1702644652708,
+      "end": 1702644652708,
       "order": "normal"
     }
   ]

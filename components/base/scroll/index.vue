@@ -22,13 +22,14 @@ export default defineComponent({
   },
   emits: ["scroll"],
   setup(props, { emit }) {
-    if (process.client) { // 仅在浏览器环境才执行组件代码
-      const rootRef = ref<HTMLDivElement>(document.createElement("div"));
-      const scroll = useScroll(rootRef, props, emit);
-      return {
-        rootRef,
-        scroll,
-      };
+    if (process.client) {      
+      // 仅在浏览器环境才执行组件代码    
+        const rootRef = ref<HTMLDivElement>(document.createElement("div"));
+        const scroll = useScroll(rootRef, props, emit);
+        return {
+          rootRef,
+          scroll,
+        };      
     }
   },
 });

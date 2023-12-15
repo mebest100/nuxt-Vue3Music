@@ -3,58 +3,58 @@
   "transforms": [
     {
       "name": "vite:load-fallback",
-      "result": "<template>\r\n    <div class=\"\">\r\n         <div> 每日精选: {{ info }}</div>\r\n         <div id=\"joke\"> 每日笑话: {{ joke }}</div>\r\n        <NuxtLink to=\"/parent/childOne\">child1</NuxtLink> ||\r\n        <NuxtLink to=\"/parent/childTwo\">child2</NuxtLink>\r\n        <h1>这里是 父组件页面</h1>\r\n    </div>\r\n    <!-- 子页面的出口-->\r\n    <NuxtPage></NuxtPage>\r\n</template>\r\n\r\n\r\n<script lang=\"ts\">\r\nimport {} from \"vue\";\r\nimport axios from 'axios'\r\nimport {  defineComponent, reactive, toRefs  } from 'vue'\r\nexport default defineComponent({\r\n   setup () {\r\n     const state = reactive({\r\n       info: '信息等待中。。。',\r\n       joke: '笑话加载中。。。'\r\n     })\r\n     axios.get('/getinfo').then((res) => {      \r\n      state.info = res.data\r\n      \r\n     })\r\n\r\n     axios.get('/getjoke').then((res) => {    \r\n      state.joke = res.data\r\n      \r\n     })\r\n  \r\n\r\n    return {...toRefs(state)}\r\n  }\r\n})\r\n</script>\r\n\r\n\r\n<style scoped>\r\n#joke {\r\n  margin-top: 20px; \r\n  margin-bottom: 20px;\r\n  color: blue;\r\n}\r\n\r\n</style>\r\n\r\n\r\n",
-      "start": 1702032563045,
-      "end": 1702032563636,
+      "result": "<template>\r\n  <div>\r\n    <div>每日精选: {{ info }}</div>\r\n    <div id=\"joke\">每日笑话: {{ joke }}</div>\r\n    <router-link to=\"/parent/childOne\">child1</router-link> ||\r\n    <router-link to=\"/parent/childTwo\">child2</router-link>\r\n    <h1>这里是 父组件页面</h1>\r\n    <p>\r\n      来自vuex的state测试信息==》 <span style=\"color: red\">{{ msg }}</span>\r\n    </p>\r\n  </div>\r\n  <!-- 子页面的出口-->\r\n  <router-view></router-view>\r\n</template>\r\n\r\n\r\n<script setup lang=\"ts\">\r\nimport { useStore } from \"vuex\";\r\nimport { computed } from \"vue\";\r\nimport RecommendServer from \"@/api/recommend\";\r\n\r\nonMounted(() => {\r\n  console.log(\"Parent mounted and execute getRecommend......\");\r\n  RecommendServer.getRecommend().then((resp) => {\r\n    console.log(\"resp=>\", resp);\r\n  });\r\n});\r\n\r\nconst store = useStore();\r\nconst msg = computed(() => store.state.info);\r\n\r\nconst { data: info } = await useAsyncData(\"info\", () => $fetch(\"/getinfo\"));\r\nconst { data: joke } = await useAsyncData(\"joke\", () => $fetch(\"/getjoke\"));\r\n\r\n// useNuxtApp().vueApp.use()\r\n</script>\r\n\r\n\r\n<style scoped>\r\n#joke {\r\n  margin-top: 20px;\r\n  margin-bottom: 20px;\r\n  color: blue;\r\n}\r\n</style>\r\n\r\n\r\n\r\n",
+      "start": 1702644650990,
+      "end": 1702644651758,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1702032563636,
-      "end": 1702032563636,
+      "start": 1702644651758,
+      "end": 1702644651758,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1702032563636,
-      "end": 1702032563636,
+      "start": 1702644651758,
+      "end": 1702644651758,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1702032563636,
-      "end": 1702032563636,
+      "start": 1702644651758,
+      "end": 1702644651758,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1702032563636,
-      "end": 1702032563636,
+      "start": 1702644651758,
+      "end": 1702644651758,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1702032563636,
-      "end": 1702032563636,
+      "start": 1702644651758,
+      "end": 1702644651758,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1702032563636,
-      "end": 1702032563636,
+      "start": 1702644651758,
+      "end": 1702644651758,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1702032563636,
-      "end": 1702032563636,
+      "start": 1702644651758,
+      "end": 1702644651758,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "result": "import _sfc_main from \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/parent.vue?vue&type=script&lang.ts\";\nexport * from \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/parent.vue?vue&type=script&lang.ts\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-a8a6869f\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"\" };\nconst _hoisted_2 = { id: \"joke\" };\nconst _hoisted_3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"h1\", null, \"\\u8FD9\\u91CC\\u662F \\u7236\\u7EC4\\u4EF6\\u9875\\u9762\", -1));\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\");\n  return _openBlock(), _createElementBlock(_Fragment, null, [\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createElementVNode(\"div\", null, \" \\u6BCF\\u65E5\\u7CBE\\u9009: \" + _toDisplayString(_ctx.info), 1),\n      _createElementVNode(\"div\", _hoisted_2, \" \\u6BCF\\u65E5\\u7B11\\u8BDD: \" + _toDisplayString(_ctx.joke), 1),\n      _createVNode(_component_NuxtLink, { to: \"/parent/childOne\" }, {\n        default: _withCtx(() => [\n          _createTextVNode(\"child1\")\n        ]),\n        _: 1\n      }),\n      _createTextVNode(\" || \"),\n      _createVNode(_component_NuxtLink, { to: \"/parent/childTwo\" }, {\n        default: _withCtx(() => [\n          _createTextVNode(\"child2\")\n        ]),\n        _: 1\n      }),\n      _hoisted_3\n    ]),\n    _createVNode(_component_NuxtPage)\n  ], 64);\n}\nimport \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/parent.vue?vue&type=style&index=0&scoped=a8a6869f&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"render\", _sfc_render], [\"__scopeId\", \"data-v-a8a6869f\"]]);\n",
-      "start": 1702032563636,
-      "end": 1702032566086,
+      "result": "import _sfc_main from \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/parent.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/parent.vue?vue&type=script&setup=true&lang.ts\";\nimport \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/parent.vue?vue&type=style&index=0&scoped=04bf20e7&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-04bf20e7\"]]);\n",
+      "start": 1702644651758,
+      "end": 1702644652738,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,117 +62,117 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652739,
+      "end": 1702644652739,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652739,
+      "end": 1702644652739,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652740,
+      "end": 1702644652740,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652740,
+      "end": 1702644652740,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652741,
+      "end": 1702644652741,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652741,
+      "end": 1702644652741,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652741,
+      "end": 1702644652741,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652742,
+      "end": 1702644652742,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652743,
+      "end": 1702644652743,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652743,
+      "end": 1702644652743,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1702032566086,
-      "end": 1702032566086,
+      "start": 1702644652743,
+      "end": 1702644652743,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1702032566087,
-      "end": 1702032566087,
+      "start": 1702644652744,
+      "end": 1702644652744,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1702032566087,
-      "end": 1702032566087,
+      "start": 1702644652744,
+      "end": 1702644652744,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1702032566087,
-      "end": 1702032566087,
+      "start": 1702644652744,
+      "end": 1702644652744,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1702032566087,
-      "end": 1702032566087,
+      "start": 1702644652744,
+      "end": 1702644652744,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1702032566087,
-      "end": 1702032566087,
+      "start": 1702644652745,
+      "end": 1702644652745,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1702032566087,
-      "end": 1702032566092,
+      "start": 1702644652746,
+      "end": 1702644652752,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1702032566092,
-      "end": 1702032566092,
+      "start": 1702644652752,
+      "end": 1702644652752,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "result": "export { default } from \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/parent.vue?macro=true&vue&type=script&lang.ts\"",
-      "start": 1702032566092,
-      "end": 1702032566093,
+      "result": "export { default } from \"F:/CodeTest/Vue3-Learning/nuxt-Vue3Music/pages/parent.vue?macro=true&vue&type=script&setup=true&lang.ts\"",
+      "start": 1702644652753,
+      "end": 1702644652753,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -185,38 +185,38 @@
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1702032566093,
-      "end": 1702032566093,
+      "start": 1702644652755,
+      "end": 1702644652755,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1702032566093,
-      "end": 1702032566093,
+      "start": 1702644652755,
+      "end": 1702644652755,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1702032566093,
-      "end": 1702032566094,
+      "start": 1702644652755,
+      "end": 1702644652755,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1702032566094,
-      "end": 1702032566094,
+      "start": 1702644652756,
+      "end": 1702644652756,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1702032566094,
-      "end": 1702032566094,
+      "start": 1702644652756,
+      "end": 1702644652756,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1702032566094,
-      "end": 1702032566094,
+      "start": 1702644652757,
+      "end": 1702644652757,
       "order": "normal"
     }
   ]

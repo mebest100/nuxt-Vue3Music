@@ -4,8 +4,11 @@ import ObserveDOM from '@better-scroll/observe-dom'
 import { ref, onMounted, onUnmounted, onActivated, onDeactivated,  type ComputedRef, type Ref } from 'vue'
 import { BScrollConstructor } from '@better-scroll/core/dist/types/BScroll'
 
-BScroll.use(PullUp)
-BScroll.use(ObserveDOM)
+if (process.client) {
+  BScroll.use(PullUp);
+  BScroll.use(ObserveDOM);
+  
+}
 
 interface Props {
   /** 请求方法 */

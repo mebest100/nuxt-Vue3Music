@@ -6,7 +6,9 @@ import * as types from '@/store/mutationTypes'
 import type { BScrollConstructor } from '@better-scroll/core/dist/types/BScroll'
 import type { Page } from '@better-scroll/slide/dist/types/SlidePages'
 
-BScroll.use(Slide)
+if(process.client) {
+  BScroll.use(Slide);
+}
 
 interface UseMiniSlider {
   /** slider 实例 */

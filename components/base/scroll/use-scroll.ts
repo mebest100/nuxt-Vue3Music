@@ -4,7 +4,10 @@ import ObserveDOM from '@better-scroll/observe-dom'
 import type { BScrollConstructor } from '@better-scroll/core/dist/types/BScroll'
 import type { Position } from '@better-scroll/slide/dist/types/SlidePages'
 
-BScroll.use(ObserveDOM)
+if (process.client) {
+  BScroll.use(ObserveDOM);
+  
+}
 
 interface Options {
   /** 派发点击事件 */
