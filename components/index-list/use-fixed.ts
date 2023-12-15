@@ -1,4 +1,4 @@
-import { computed, ComputedRef, CSSProperties, nextTick, Ref, ref, watch } from 'vue'
+import { computed,  type ComputedRef, CSSProperties, nextTick,type Ref, ref, watch } from 'vue'
 import type { Singers } from '@/types/api/singer'
 import type { Position } from '@better-scroll/slide/dist/types/SlidePages'
 

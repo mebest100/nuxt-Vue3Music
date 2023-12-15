@@ -1,4 +1,4 @@
-import { computed, onMounted, PropType, reactive, toRefs } from 'vue'
+import { computed, onMounted, type PropType, reactive, toRefs } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { MusicList } from '@/components'
 import type { Singer } from '@/types/api/singer'

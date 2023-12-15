@@ -1,4 +1,4 @@
-import { onActivated, onDeactivated, onMounted, onUnmounted, ref, Ref } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted, ref, type Ref } from 'vue'
 import BScroll from '@better-scroll/core'
 import Slide from '@better-scroll/slide'
 import type { BScrollConstructor } from '@better-scroll/core/dist/types/BScroll'

@@ -20,7 +20,7 @@ import { computed } from "vue";
 import RecommendServer from "@/api/recommend";
 
 onMounted(() => {
-  console.log("execute getRecommend......");
+  console.log("Parent mounted and execute getRecommend......");
   RecommendServer.getRecommend().then((resp) => {
     console.log("resp=>", resp);
   });

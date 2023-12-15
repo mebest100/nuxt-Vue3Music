@@ -50,7 +50,7 @@
 </template>
 
 <script lang="ts">
-import { computed, ComputedRef, defineComponent, onMounted, PropType, reactive, toRefs } from 'vue'
+import { computed,  type ComputedRef, defineComponent, onMounted, type PropType, reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import Scroll from '../wrap-scroll/index'

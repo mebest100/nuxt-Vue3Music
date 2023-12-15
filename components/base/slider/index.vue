@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from 'vue'
+import { defineComponent, type PropType, ref } from 'vue'
 import useSlider from './use-slider'
 import type { Slider } from '@/types/api/recommend'
 

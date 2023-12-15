@@ -4,25 +4,29 @@
       <img
         width="24"
         height="24"
-        :src="require('@/images/loading.gif')"
+        :src="LoadingImg"        
         alt=""
       >
-       <!-- :src="images.loading" -->
+
+      <!--  src="@/assets/images/loading.gif"  直接引入ok,但src前面不能有冒号    -->
+       <!-- :src="images.loading"
+          :src="require('@/images/loading.gif')"
+        -->
       <p class="desc">{{ title }}</p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, reactive, toRefs } from 'vue'
-import images from '@/assets/images'
+import { defineComponent, reactive, toRefs } from 'vue'
+import LoadingImg from '@/assets/images/loading.gif';
 
 export default defineComponent({
   name: 'Loading',
   setup () {
     const state = reactive({
       title: '正在载入...',
-      images: inject('images', images)
+      LoadingImg
     })
 
     /** 设置标题 */
@@ -32,7 +36,6 @@ export default defineComponent({
 
     return {
       ...toRefs(state),
-
       setTitle
     }
   }

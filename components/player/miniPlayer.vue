@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="control">
-        <progress-circle
+        <player-progress-circle
           :radius="32"
           :progress="progress"
         >
@@ -44,12 +44,12 @@
             :class="miniPlayIcon"
             @click.stop="togglePlay"
           ></i>
-        </progress-circle>
+        </player-progress-circle>
       </div>
       <div class="control" @click.stop="showPlayList">
         <i class="icon-playlist"></i>
       </div>
-      <play-list ref="playListRef"/>
+      <player-playList ref="playListRef"/>
     </div>
   </transition>
 </template>
@@ -57,8 +57,8 @@
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue'
 import { useStore } from 'vuex'
-import ProgressCircle from './progress-circle.vue'
-import PlayList from './play-list.vue'
+// import ProgressCircle from './progress-circle.vue'
+// import PlayList from './play-list.vue'
 import { useCd } from './use-cd'
 import { useMiniSlider } from './use-mini-slider'
 import * as types from '@/store/mutationTypes'
@@ -66,8 +66,8 @@ import * as types from '@/store/mutationTypes'
 export default defineComponent({
   name: 'MiniPlayer',
   components: {
-    ProgressCircle,
-    PlayList
+    // ProgressCircle,
+    // PlayList
   },
   props: {
     /** 播放进度 */

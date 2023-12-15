@@ -1,7 +1,7 @@
 import BScroll from '@better-scroll/core'
 import PullUp from '@better-scroll/pull-up'
 import ObserveDOM from '@better-scroll/observe-dom'
-import { ref, onMounted, onUnmounted, onActivated, onDeactivated, ComputedRef, Ref } from 'vue'
+import { ref, onMounted, onUnmounted, onActivated, onDeactivated,  type ComputedRef, type Ref } from 'vue'
 import { BScrollConstructor } from '@better-scroll/core/dist/types/BScroll'
 
 BScroll.use(PullUp)

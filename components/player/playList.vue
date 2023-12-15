@@ -20,7 +20,7 @@
               </span>
             </h1>
           </div>
-          <scroll
+          <wrap-scroll
             ref="scrollRef"
             class="list-content"
           >
@@ -49,7 +49,7 @@
                 </span>
               </li>
             </transition-group>
-          </scroll>
+          </wrap-scroll>
           <div class="list-add">
             <div class="add" @click="showAddSong">
               <i class="icon-add"></i>
@@ -60,7 +60,7 @@
             <span>关闭</span>
           </div>
         </div>
-        <confirm
+        <base-confirm
           ref="confirmRef"
           text="是否清空播放列表？"
           confirm-btn-text="清空"
@@ -73,12 +73,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, reactive, toRefs, watch, Ref, ref } from 'vue'
+import { computed, defineComponent, nextTick, reactive, toRefs, watch, type Ref, ref } from 'vue'
 import { useStore } from 'vuex'
 import { promiseTimeout } from '@vueuse/core'
-import Scroll from '@/components/wrap-scroll/index'
-import Confirm from '@/components/base/confirm/index.vue'
-import AddSong from '@/components/add-song/index.vue'
+// import Scroll from '@/components/wrap-scroll/index'
+// import Confirm from '@/components/base/confirm/index.vue'
+// import AddSong from '@/components/add-song/index.vue'
 import { useMode } from './use-mode'
 import { useFavorite } from './use-favorite'
 import * as types from '@/store/mutationTypes'
@@ -103,9 +103,9 @@ interface State {
 export default defineComponent({
   name: 'PlayList',
   components: {
-    Scroll,
-    Confirm,
-    AddSong
+    // Scroll,
+    // Confirm,
+    // AddSong
   },
   setup () {
     const store = useStore()

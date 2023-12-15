@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import { reactive, toRefs, defineComponent, PropType, Ref, ref } from 'vue'
+import { reactive, toRefs, defineComponent, type PropType, type Ref, ref } from 'vue'
 import type { Song } from '@/types/api/recommend'
 import { usePlayHistory } from '@/components/player/use-play-history'
 import Confirm from '@/components/base/confirm/index.vue'

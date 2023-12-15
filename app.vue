@@ -6,7 +6,7 @@
 
   <v-header />
   <v-tab />
-  <!-- <router-view :style="viewStyle" v-slot="{ Component }">
+  <router-view :style="viewStyle" v-slot="{ Component }">
       <component :is="Component" />
     </router-view>
     <router-view :style="viewStyle" name="user" v-slot="{ Component }">
@@ -15,7 +15,9 @@
       </transition>
     </router-view> 
 
-    <player /> -->
+   <!-- <client-only>
+     <player />
+   </client-only> -->
 
   <router-view></router-view>
 </template>  
@@ -23,15 +25,15 @@
 <script lang="ts">
 import { computed } from "vue";
 import { useStore } from "vuex";
-import { Player, VHeader, VTab } from "./components";
+// import { Player, VHeader, VTab } from "@/components";
 
 export default defineComponent({
-  name: "App",
-  components: {
-    VHeader,
-    VTab,
-    Player,
-  },
+  // name: "App",
+  // components: {
+  //   VHeader,
+  //   VTab,
+  //   Player,
+  // },
   setup() {    
     onMounted(() => {
       console.log("app mounted。。。");

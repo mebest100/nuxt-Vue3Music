@@ -1,4 +1,4 @@
-import { CSSProperties, Ref, ref } from 'vue'
+import { CSSProperties, type Ref, ref } from 'vue'
 
 interface UseMiddleInteractive {
   /** 当前显示 */

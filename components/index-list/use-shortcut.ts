@@ -1,4 +1,4 @@
-import { computed, ComputedRef, Ref, ref } from 'vue'
+import { computed,  type ComputedRef,type Ref, ref } from 'vue'
 import type { Singers } from '@/types/api/singer'
 
 interface Props {

@@ -62,7 +62,9 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {},
+  "public": {
+    "API_BASE_URL": "/api"
+  },
   "proxy": {
     "options": [
       {

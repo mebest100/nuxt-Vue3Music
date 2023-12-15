@@ -21,7 +21,7 @@ export default defineNuxtConfig({
       less: {
         javascriptEnabled: true,
       },
-    }
+    },
   },
 
   modules: ["nuxt-proxy-request"],
@@ -42,5 +42,10 @@ export default defineNuxtConfig({
   },
   devServer: {
     port: 3006,
+  },
+  runtimeConfig: {
+    public: {
+      API_BASE_URL: process.env.API_BASE_URL,
+    },
   },
 });

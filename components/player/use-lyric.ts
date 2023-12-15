@@ -1,4 +1,4 @@
-import { computed, ref, Ref, watch } from 'vue'
+import { computed, ref, type Ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import Lyric from 'lyric-parser'
 import { processLyric } from '@/api/song'

@@ -1,4 +1,4 @@
-import { computed, ComputedRef } from 'vue'
+import { computed,  type ComputedRef } from 'vue'
 import { useStore } from 'vuex'
 import { PlayMode } from '@/utils/constants'
 

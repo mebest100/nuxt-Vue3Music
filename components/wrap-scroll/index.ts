@@ -21,6 +21,7 @@ export default defineComponent({
     })
   },
   setup () {
+    // 在包装组件wrap-scoll做浏览器环境判断没有用，必须在scroll根组件做这种判断！
     const store = useStore()
     const scrollRef = ref()
     const scroll = computed(() => scrollRef.value.scroll)

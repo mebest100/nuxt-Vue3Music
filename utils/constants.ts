@@ -1,8 +1,10 @@
-const { VUE_APP_API_URL } = process.env
+
+// console.log("API_BASE_URL==>", API_BASE_URL);
 
 export const NODE_ENV: string = process.env.NODE_ENV // 环境变量
 
-export const API_URL: string = VUE_APP_API_URL // 接口 url
+export const API_URL: string = '/api'// 接口 url
+// export const API_URL: string = API_BASE_URL as string; // 接口 url
 
 export const SINGER_KEY = '__singer__'
 

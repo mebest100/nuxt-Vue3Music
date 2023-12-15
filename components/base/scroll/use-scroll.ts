@@ -1,4 +1,4 @@
-import { onActivated, onDeactivated, onMounted, onUnmounted, ref, Ref } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted, ref, type Ref } from 'vue'
 import BScroll from '@better-scroll/core'
 import ObserveDOM from '@better-scroll/observe-dom'
 import type { BScrollConstructor } from '@better-scroll/core/dist/types/BScroll'

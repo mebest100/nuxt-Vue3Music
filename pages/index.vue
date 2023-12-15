@@ -1,11 +1,10 @@
 <template>
-  <div class="recommend" v-loading="loading">
-    <ClientOnly>
-    <scroll class="recommend-content">
+  <div  class="recommend" v-loading="loading">   
+    <wrap-scroll   class="recommend-content">
         <div>
           <div class="slider-wrapper">
             <div class="slider-content">
-              <slider v-if="sliders.length" :sliders="sliders" />
+              <baseSlider v-if="sliders.length" :sliders="sliders" />
             </div>
           </div>
           <div class="recommend-list">
@@ -28,23 +27,23 @@
             </ul>
           </div>
         </div>
-      </scroll>
-    </ClientOnly>
-   
+      </wrap-scroll>    
+  
      
  
-
     <router-view v-slot="{ Component }">
       <transition appear name="slide">
         <component :is="Component" :data="selectedAlbum" />
       </transition>
     </router-view>
+    <p>默认首页</p>
   </div>
+  
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, onMounted, reactive, toRefs } from "vue";
-import { Scroll, Slider } from "@/components";
+// import { Scroll, Slider } from "@/components";
 import type { Album, RecommendResp } from "@/types/api/recommend";
 import { ALBUM_KEY } from "@/utils/constants";
 import { saveSessionStorage } from "@/utils/cache";
@@ -54,13 +53,14 @@ import { useRouter } from "vue-router";
 interface State extends RecommendResp {
   /** 选中的专辑 */
   selectedAlbum: Album | undefined;
+  isClient: boolean | false;
 }
 
 export default defineComponent({
   name: "Recommend",
   components: {
-    Slider,
-    Scroll,
+    // Slider,
+    // Scroll,
   },
   setup() {
     const router = useRouter();
@@ -68,11 +68,13 @@ export default defineComponent({
       sliders: [],
       albums: [],
       selectedAlbum: undefined,
+      isClient: false
     });
 
     const loading = computed(
       () => !state.sliders.length && !state.albums.length
     );
+    
 
     /** 获取数据 */
     async function fetchData() {
@@ -97,6 +99,7 @@ export default defineComponent({
 
     onMounted(() => {
       console.log("推荐页已挂载......")
+      state.isClient = process.client
       fetchData();
     });
 

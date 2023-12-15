@@ -54,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import Scroll from '@/components/wrap-scroll/index'
 import { useFixed } from './use-fixed'
 import { useShortcut } from './use-shortcut'
