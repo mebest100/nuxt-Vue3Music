@@ -1,5 +1,6 @@
 <template>
-  <div class="search">
+ <client-only>
+   <div class="search">
     <div class="search-input-wrapper">
       <search-input v-model="query"/>
     </div>
@@ -62,6 +63,7 @@
       </transition>
     </router-view>
   </div>
+ </client-only>
 </template>
 
 <script lang="ts">
@@ -110,7 +112,7 @@ export default defineComponent({
       hotKeys: [],
       selectedSinger: undefined,
       scrollRef: undefined,
-      confirmRef: document.createElement('div')
+      confirmRef: ref(null)
     })
 
     const searchHistory = computed(() => store.state.searchHistory)
@@ -158,7 +160,7 @@ export default defineComponent({
 
     /** 显示删除弹框 */
     function showConfirm (): void {
-      state.confirmRef.show()
+      state.confirmRef.value.show()
     }
 
     /** 强制刷新 */
