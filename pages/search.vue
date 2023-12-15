@@ -160,7 +160,7 @@ export default defineComponent({
 
     /** 显示删除弹框 */
     function showConfirm (): void {
-      state.confirmRef.value.show()
+      state.confirmRef.show()
     }
 
     /** 强制刷新 */
