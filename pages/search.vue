@@ -1,5 +1,4 @@
 <template>
- <client-only>
    <div class="search">
     <div class="search-input-wrapper">
       <search-input v-model="query"/>
@@ -63,7 +62,7 @@
       </transition>
     </router-view>
   </div>
- </client-only>
+ 
 </template>
 
 <script lang="ts">

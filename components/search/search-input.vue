@@ -16,12 +16,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs, watch } from 'vue'
+import { defineComponent, reactive, toRefs, watch, type Ref } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
 
 interface State {
   /** 输入框实例 */
-  inputRef: HTMLInputElement;
+  inputRef:  Ref<HTMLInputElement | null>;
   /** 搜索参数 */
   query: string;
 }
@@ -40,8 +40,9 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup (props, { emit }) {
+    // inputRef: document.createElement('input'),
     const state = reactive<State>({
-      inputRef: document.createElement('input'),
+      inputRef: ref<HTMLInputElement | null>(null),      
       query: props.modelValue
     })
 
