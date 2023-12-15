@@ -1,6 +1,6 @@
 <template>
   <div class="top-list" v-loading="loading">
-    <scroll class="top-list-content">
+    <wrap-scroll class="top-list-content">
       <ul>
         <li
           class="item"
@@ -28,7 +28,7 @@
           </ul>
         </li>
       </ul>
-    </scroll>
+    </wrap-scroll>
     <router-view v-slot="{Component}">
       <transition appear name="slide">
         <component :is="Component" :data="selectedTop"/>
@@ -40,7 +40,7 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
-import { Scroll } from '@/components'
+// import { Scroll } from '@/components'
 import { TOP_KEY } from '@/utils/constants'
 import { saveSessionStorage } from '@/utils/cache'
 import TopServer from '@/api/top'
@@ -55,11 +55,12 @@ interface State {
 
 export default defineComponent({
   name: 'TopList',
-  components: {
-    Scroll
-  },
+  // components: {
+  //   Scroll
+  // },
   setup () {
-    const router = useRouter()
+    if(process.client) {
+          const router = useRouter()
     const state = reactive<State>({
       topList: [],
       selectedTop: undefined
@@ -96,6 +97,7 @@ export default defineComponent({
       loading,
 
       selectTop
+    }
     }
   }
 })
