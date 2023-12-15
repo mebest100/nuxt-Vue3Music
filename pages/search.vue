@@ -3,7 +3,7 @@
     <div class="search-input-wrapper">
       <search-input v-model="query"/>
     </div>
-    <scroll
+    <wrap-scroll
       ref="scrollRef"
       class="search-content"
       v-show="!query"
@@ -32,12 +32,12 @@
               <i class="icon-clear"></i>
             </span>
           </h1>
-          <search-list
+          <baseSearch-list
             :searches="searchHistory"
             @select="addQuery"
             @delete="deleteSearch"
           />
-          <confirm
+          <base-confirm
             ref="confirmRef"
             text="是否清空所有搜索历史"
             confirm-btn-text="清空"
@@ -45,12 +45,12 @@
           />
         </div>
       </div>
-    </scroll>
+    </wrap-scroll>
     <div
       class="search-result"
       v-show="query"
     >
-      <suggest
+      <search-suggest
         :query="query"
         @select-singer="selectSinger"
         @select-song="selectSong"
@@ -69,7 +69,7 @@
 import { computed, defineComponent, nextTick, onMounted, reactive, toRefs, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import { SearchInput, Scroll, Suggest, SearchList, Confirm } from '@/components'
+// import { SearchInput, Scroll, Suggest, SearchList, Confirm } from '@/components'
 import { useSearchHistory } from '@/components/search/use-search-history'
 import SearchServer from '@/api/search'
 import { SINGER_KEY } from '@/utils/constants'
@@ -95,13 +95,13 @@ interface State {
 
 export default defineComponent({
   name: 'Search',
-  components: {
-    SearchInput,
-    Scroll,
-    Suggest,
-    SearchList,
-    Confirm
-  },
+  // components: {
+  //   SearchInput,
+  //   Scroll,
+  //   Suggest,
+  //   SearchList,
+  //   Confirm
+  // },
   setup () {
     const router = useRouter()
     const store = useStore()
