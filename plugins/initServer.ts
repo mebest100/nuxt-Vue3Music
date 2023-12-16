@@ -5,6 +5,7 @@ import { setupDirective } from "@/directives";
 
 
 
+
 export default defineNuxtPlugin((nuxtApp) => { 
    const app = nuxtApp.vueApp;
   setupStore(app);
