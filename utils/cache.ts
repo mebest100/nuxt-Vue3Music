@@ -1,13 +1,15 @@
-import storage from 'good-storage'
+import storage from "good-storage";
+
+
 
 /**
  * 设置本地存储
  * @param key
  * @param value
  */
-export function saveStorage<T> (key: string, value?: T): T | undefined {
-  storage.set(key, value)
-  return value
+export function saveStorage<T>(key: string, value?: T): T | undefined {
+  storage.set(key, value);
+  return value;
 }
 
 /**
@@ -15,16 +17,16 @@ export function saveStorage<T> (key: string, value?: T): T | undefined {
  * @param key
  * @param defaultValue
  */
-export function loadStorage<T> (key: string, defaultValue?: T): T | undefined {
-  return storage.get(key, defaultValue)
+export function loadStorage<T>(key: string, defaultValue?: T): T | undefined {
+      return storage.get(key, defaultValue);
 }
 
 /**
  * 删除本地存储
  * @param key
  */
-export function removeStorage (key: string): void {
-  storage.remove(key)
+export function removeStorage(key: string): void {
+  storage.remove(key);
 }
 
 /**
@@ -32,9 +34,9 @@ export function removeStorage (key: string): void {
  * @param key
  * @param value
  */
-export function saveSessionStorage<T> (key: string, value?: T): T | undefined {
-  storage.session.set(key, value)
-  return value
+export function saveSessionStorage<T>(key: string, value?: T): T | undefined {
+  storage.session.set(key, value);
+  return value;
 }
 
 /**
@@ -42,14 +44,17 @@ export function saveSessionStorage<T> (key: string, value?: T): T | undefined {
  * @param key
  * @param defaultValue
  */
-export function loadSessionStorage<T> (key: string, defaultValue?: T): T | undefined {
-  return storage.session.get(key, defaultValue)
+export function loadSessionStorage<T>(
+  key: string,
+  defaultValue?: T
+): T | undefined {
+  return storage.session.get(key, defaultValue);
 }
 
 /**
  * 删除会话存储
  * @param key
  */
-export function removeSessionStorage (key: string): void {
-  storage.session.remove(key)
+export function removeSessionStorage(key: string): void {
+  storage.session.remove(key);
 }

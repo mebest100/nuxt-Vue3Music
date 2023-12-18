@@ -37,6 +37,7 @@
       </transition>
     </router-view>
     <p>默认首页</p>
+    <p>baseUrl => {{ $config.public.API_BASE_URL }}</p>
   </div>
   
 </template>
@@ -96,11 +97,17 @@ export default defineComponent({
     function cacheAlbum(album: Album): void {
       saveSessionStorage(ALBUM_KEY, album);
     }
-
+   
+    
+ 
+    fetchData();
     onMounted(() => {
       console.log("推荐页已挂载......")
+      // console.log("base apiUrl ==>", useRuntimeConfig().public.API_BASE_URL);
+      
+      
       state.isClient = process.client
-      fetchData();
+      
     });
 
     return {

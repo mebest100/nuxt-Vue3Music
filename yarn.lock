@@ -1537,6 +1537,11 @@
   dependencies:
     "@types/webpack" "^4"
 
+"@types/good-storage@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@types/good-storage/-/good-storage-1.1.2.tgz#3479e61d251e59650057e01c4599a13301156294"
+  integrity sha512-Lh3xQFPA3GCdICPtwoTur/STzT1zEfg5tKeZOHugnkRtIylcf0eDbPXHEHVOidAuJvUx1daWDm6HykihijSTOg==
+
 "@types/html-minifier@4.0.4":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@types/html-minifier/-/html-minifier-4.0.4.tgz#4d8501885918af2f74d9fbfb86acabca44af7306"
