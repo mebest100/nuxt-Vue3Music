@@ -1,36 +1,34 @@
 <template>
-  <div  class="recommend" v-loading="loading">   
-    <wrap-scroll   class="recommend-content">
-        <div>
-          <div class="slider-wrapper">
-            <div class="slider-content">
-              <baseSlider v-if="sliders.length" :sliders="sliders" />
-            </div>
-          </div>
-          <div class="recommend-list">
-            <h1 class="list-title" v-show="!loading">热门歌单推荐</h1>
-            <ul>
-              <li
-                class="item"
-                v-for="item in albums"
-                :key="item.id"
-                @click="selectAlbum(item)"
-              >
-                <div class="icon">
-                  <img width="60" height="60" v-lazy="item.pic" alt="" />
-                </div>
-                <div class="text">
-                  <h2 class="name">{{ item.username }}</h2>
-                  <p class="title">{{ item.title }}</p>
-                </div>
-              </li>
-            </ul>
+  <div class="recommend" v-loading="loading">
+    <wrap-scroll class="recommend-content">
+      <div>
+        <div class="slider-wrapper">
+          <div class="slider-content">
+            <baseSlider v-if="sliders.length" :sliders="sliders" />
           </div>
         </div>
-      </wrap-scroll>    
-  
-     
- 
+        <div class="recommend-list">
+          <h1 class="list-title" v-show="!loading">热门歌单推荐</h1>
+          <ul>
+            <li
+              class="item"
+              v-for="item in albums"
+              :key="item.id"
+              @click="selectAlbum(item)"
+            >
+              <div class="icon">
+                <img width="60" height="60" v-lazy="item.pic" alt="" />
+              </div>
+              <div class="text">
+                <h2 class="name">{{ item.username }}</h2>
+                <p class="title">{{ item.title }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </wrap-scroll>
+
     <router-view v-slot="{ Component }">
       <transition appear name="slide">
         <component :is="Component" :data="selectedAlbum" />
@@ -39,7 +37,6 @@
     <p>默认首页</p>
     <p>baseUrl => {{ $config.public.API_BASE_URL }}</p>
   </div>
-  
 </template>
 
 <script lang="ts">
@@ -69,19 +66,25 @@ export default defineComponent({
       sliders: [],
       albums: [],
       selectedAlbum: undefined,
-      isClient: false
+      isClient: false,
     });
 
     const loading = computed(
       () => !state.sliders.length && !state.albums.length
     );
-    
 
     /** 获取数据 */
-    async function fetchData() {
-      const { sliders, albums } = await RecommendServer.getRecommend();
-      state.sliders = sliders;
-      state.albums = albums;
+    // async function fetchData() {
+    //   const { sliders, albums } = await RecommendServer.getRecommend();
+    //   state.sliders = sliders;
+    //   state.albums = albums;
+    // }
+
+    function fetchData() {
+      RecommendServer.getRecommend().then(({ sliders, albums }) => {
+        state.sliders = sliders;
+        state.albums = albums;
+      })
     }
 
     /** 选择专辑 */
@@ -97,17 +100,13 @@ export default defineComponent({
     function cacheAlbum(album: Album): void {
       saveSessionStorage(ALBUM_KEY, album);
     }
-   
-    
- 
+
     fetchData();
     onMounted(() => {
-      console.log("推荐页已挂载......")
+      console.log("推荐页已挂载......");
       // console.log("base apiUrl ==>", useRuntimeConfig().public.API_BASE_URL);
-      
-      
-      state.isClient = process.client
-      
+
+      state.isClient = process.client;
     });
 
     return {
