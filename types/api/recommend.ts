@@ -37,3 +37,8 @@ export interface Song {
 export interface AlbumResp {
   songs: Song[];
 }
+
+export interface ApiResponse<T> {
+  code: string;
+  result: T;
+}

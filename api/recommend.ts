@@ -1,12 +1,16 @@
 import request from '@/utils/request'
-import type { AlbumReq, AlbumResp, RecommendResp } from '@/types/api/recommend'
+import type {
+  AlbumReq,
+  AlbumResp,
+  RecommendResp,  
+} from "@/types/api/recommend";
  
 // const baseUrl =  useRuntimeConfig().public.API_BASE_URL;
 
-interface ApiResponse<T> {
-  code: string,
-  result: T
-}
+// interface ApiResponse<T> {
+//   code: string,
+//   result: T
+// }
 
 export default class RecommendServer {
   // 获取推荐信息
@@ -17,7 +21,7 @@ export default class RecommendServer {
   // }
 
   static getRecommend(): Promise<RecommendResp> {
-    return useFetch<ApiResponse<RecommendResp>>("/api/getRecommend").then(
+    return useApiFetch("/getRecommend").then(
       ({ data }) => {
         // console.log("recommend data==>", data.value);
         return Promise.resolve(data.value!.result);
