@@ -1,14 +1,8 @@
-import { UseFetchOptions } from "nuxt/app";
-import { KeysOf } from "nuxt/dist/app/composables/asyncData";
-
-export  const useApiFetch  = (
-  request: any,
-  options?: UseFetchOptions<any, any, KeysOf<any>, null, any, "get"> | undefined
-) => {
+export function useApiFetch<T>(requestUrl: string, options?: any) {
   const config = useRuntimeConfig();
 
-  return useFetch(request, {
+  return useFetch<T>(requestUrl, {
     baseURL: config.public.API_BASE_URL,
     ...options,
   });
-};
+}
